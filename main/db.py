@@ -73,9 +73,9 @@ def select_table_job(searchkey):
 	cursor = conn.cursor()
 	cursor.execute(SELECT_TABLE_JOB, searchkey)
 	values = cursor.fetchall()
-	print len(values)
 	cursor.close()
 	conn.close()
+	return values
 	
 #create_database()
 
@@ -84,7 +84,7 @@ def select_table_job(searchkey):
 #cursor.execute('insert into user (id, name) values (%s, %s)', ['1', 'Michael'])
 #insert_table_job(joboffer)
 
-select_table_job('java')
+#select_table_job('java')
 
 
 
