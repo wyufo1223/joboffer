@@ -5,7 +5,8 @@ Python 2.7
 ## Python techniques  
 spider, mysql, redis, flask, pandas
 
-
+## Front-end techniques  
+html, bootstrap, react
 
 ***1. Spider***  
 pip install requests  
