@@ -3,51 +3,60 @@
 
 <head>
 <meta charset="utf-8">
-<title>Home</title>
+<title>Job Results</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="../static/js/bootstrap-4.0.0/css/bootstrap.min.css">
+<!-- <script type="text/javascript" src="../static/js/popper-1.14.3.js"></script> -->
 <script type="text/javascript" src="../static/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript"
 	src="../static/js//bootstrap-4.0.0/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">	
+/* 	$(function () {
+		 $('td["data-toggle"="popover_left"]').popover({placement:'left'});
+	}); */
+</script>
 </head>
 <body>	
-	<div class="container">
+	<div class="container-fluid" style="width: 80%; margin-top: 10px;">
 		<div class="page-header">
 			<h1>Job Results</h1>
 		</div>
-		<div class="row">
+		<div class="row" style="margin-top: 10px;">
 			<div class="col-md-12 column">
 				<table class="table">
 					<thead>
 						<tr>
-							<th>KEYWORD</th>
-							<th>MONTHLYSALARY</th>
-							<th>WORKINGPLACE</th>
-							<th>RELEASEDATE</th>
-							<th>JOBTYPE</th>
-							<th>WORKEXPERIENCE</th>
-							<th>LOWESTDEGREE</th>
-							<th>RECRUITMENTNUMBER</th>
-							<th>POSITIONCATEGORY</th>
-							<th>DEMAND</th>
+							<th>ID</th>
+							<th>检索关键字</th>
+							<th>月薪</th>
+							<th>工作地点</th>
+							<th>发布时间</th>
+							<th>工作性质</th>
+							<th>工作经验</th>
+							<th>最低学历</th>
+							<th>招聘人数</th>
+							<th>职位级别</th>
+							<th>职位要求</th>
 						</tr>
 					</thead>
 					<tbody>
 						{% for job in joblist %}
 							<tr>
-								<th> {{ job[0] }} </th>
-								<th> {{ job[1] }} </th>
-								<th> {{ job[2] }} </th>
-								<th> {{ job[3] }} </th>
-								<th> {{ job[4] }} </th>
-								<th> {{ job[5] }} </th>
-								<th> {{ job[6] }} </th>
-								<th> {{ job[7] }} </th>
-								<th> {{ job[8] }} </th>
-								<th> {{ job[9][ : 10] }} </th>
+								<td> {{ job[0] }} </td>
+								<td> {{ job[1] }} </td>
+								<td> {{ job[2] }} </td>
+								<td> {{ job[3] }} </td>
+								<td> {{ job[4] }} </td>
+								<td> {{ job[5] }} </td>
+								<td> {{ job[6] }} </td>
+								<td> {{ job[7] }} </td>
+								<td> {{ job[8] }} </td>
+								<td> {{ job[9] }} </td>
+								<td title="职位要求: {{ job[10]}}"> {{ job[10][ : 10] }} </td>
 							</tr>
 						{% endfor %} 
 					</tbody>

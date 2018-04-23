@@ -34,12 +34,22 @@ INSERT_TABLE_JOB = """
 
 SELECT_TABLE_JOB = """
 	SELECT 
-		KEYWORD, MONTHLYSALARY, WORKINGPLACE, RELEASEDATE, JOBTYPE, 
+		ID, KEYWORD, MONTHLYSALARY, WORKINGPLACE, RELEASEDATE, JOBTYPE, 
 		WORKEXPERIENCE, LOWESTDEGREE, RECRUITMENTNUMBER, POSITIONCATEGORY, DEMAND
 	FROM `JOB`
 	WHERE KEYWORD like %s
 """
 
+SELECT_DISTINCT_KEYWORD =  """
+	SELECT distinct keyword	
+	FROM JOB
+"""
+
+DELETE_JOB = """
+	delete
+	FROM JOB
+	where KEYWORD = %s
+"""
 	    	 
 def create_database():
 	conn = pymysql.connect(**DB_CONFIG)
@@ -76,6 +86,23 @@ def select_table_job(searchkey):
 	cursor.close()
 	conn.close()
 	return values
+
+def select_distinct_keyword():
+	conn = get_db_conn()
+	cursor = conn.cursor()
+	cursor.execute(SELECT_DISTINCT_KEYWORD)
+	values = cursor.fetchall()
+	cursor.close()
+	conn.close()
+	return values
+
+def delete_job(searchkey):
+	conn = get_db_conn()
+	cursor = conn.cursor()
+	cursor.execute(DELETE_JOB, searchkey)
+	conn.commit()
+	cursor.close()
+	conn.close()
 	
 #create_database()
 
@@ -85,6 +112,8 @@ def select_table_job(searchkey):
 #insert_table_job(joboffer)
 
 #select_table_job('java')
+
+#delete_job('java')
 
 
 
