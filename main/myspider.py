@@ -79,18 +79,7 @@ def update_job_data_thread():
     print "update_job_data_thread is running"
 
 
-def run_update_job_data():
-	print "run_update_job_data is running"
-	schedule.every().day.at("22:56").do(update_job_data_thread)
-	while True:
-	    schedule.run_pending()
-	    time.sleep(1)
-	
-
-
-run_update_job_data()
-  
-#threading.Timer(1, update_job_data).start()  
+ 
  		
 
 	
